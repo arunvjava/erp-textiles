@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import com.nura.erp.entity.User;
 import com.nura.erp.repo.UserRepository;
 
+/**
+ * Responsible to manage all user related operations
+ */
 @Service
 public class UserService {
 
