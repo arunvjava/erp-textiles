@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../../shared/navbar/navbar.component";
 import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, SidebarComponent, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

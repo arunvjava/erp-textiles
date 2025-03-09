@@ -1,13 +1,22 @@
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand">Senthur Tex
-            <i class="bi bi-border-width"></i>
-        </a>
-        <form class="d-flex" role="search">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Logout"> -->
-            <button class="btn btn-success" type="submit">
-                <i class='bx bx-user'></i>
-                Logout</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="toggler-btn" type="button">
+        <i class='bx bx-menu'></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <!-- Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown">
+                    <i class='bx bxs-user-circle'></i>
+                    Arun
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/logout">Logout</a></li>
+                    <!-- <li><a class="dropdown-item" routerLink="/service2">Service 2</a></li>
+                    <li><a class="dropdown-item" routerLink="/service3">Service 3</a></li> -->
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>
