@@ -8,15 +8,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "m_uom")
-public class UOM {
+@Table(name = "ms_brand")
+public class Brand {
 
 	@Id
-	@Column(name = "id")
-	private long id;
+	@Column(name = "brand_id")
+	private long brandId;
+	@Column(name = "code_v")
+	private String code;
 	@Column(name = "name_v")
 	private String name;
-	@Column(name = "short_name_v")
-	private String shortName;
 
 }
