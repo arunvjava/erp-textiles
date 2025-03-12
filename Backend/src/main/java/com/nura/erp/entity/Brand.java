@@ -10,7 +10,6 @@ import lombok.Data;
 @Entity
 @Table(name = "ms_brand")
 public class Brand {
-
 	@Id
 	@Column(name = "brand_id")
 	private long brandId;
