@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-logout',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './logout.component.css'
 })
 export class LogoutComponent {
+
+  constructor() {
+    // Clear all the references and logout
+    localStorage.clear();
+    sessionStorage.clear();
+  }
 
 }

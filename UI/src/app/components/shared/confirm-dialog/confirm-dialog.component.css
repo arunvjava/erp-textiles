@@ -1,0 +1,8 @@
+.container{
+    .message{
+        font-size: large;
+    }
+    .confirm-buttons{
+        text-align: center;
+    }
+}
