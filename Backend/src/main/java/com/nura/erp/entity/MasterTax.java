@@ -8,25 +8,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "ms_brand")
-public class Brand {
+@Table(name = "ms_tax")
+public class MasterTax {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brand_dtls_generator")
-	@SequenceGenerator(name = "brand_dtls_generator", sequenceName = "brand_dtls_seq", allocationSize = 1, initialValue = 1)
-	@Column(name = "brand_id")
-	private long brandId;
-	
-	@Column(name = "code_v")
-	private String code;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_tax_dtls_generator")
+	@SequenceGenerator(name = "ms_tax_dtls_generator", sequenceName = "ms_tax_dtls_seq", allocationSize = 1, initialValue = 1)
+	@Column(name = "id")
+	private long id;
 	
 	@Column(name = "name_v")
 	private String name;
-
+	
+	@Column(name = "percent_n")
+	private int perCent;
+	
 	@Embedded
 	private AuditDtls auditDtls;
+
 }
