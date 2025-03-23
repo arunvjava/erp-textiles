@@ -8,22 +8,37 @@
                 <i class='bx' [ngClass]="sidebarToggleClass"></i>
             </button>
         </div>
-        <hr/>
+        <hr />
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a routerLink="/home" class="sidebar-link">
+                <a class="sidebar-link" role="button" (click)="navigate('/home')">
                     <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a routerlink="/home" class="sidebar-link">
+                <a href="#masterCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    role="button" aria-expanded="false" aria-controls="masterCollapse">
                     <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
                     <span>Master</span>
                 </a>
+                <ul id="masterCollapse" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" role="button" (click)="navigate('/home/brand')">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Brand</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" role="button" (click)="navigate('/home/color')">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Color</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="sidebar-item">
-                <a href="#merchandisingCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" 
+                <a href="#merchandisingCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                     role="button" aria-expanded="false" aria-controls="merchandisingCollapse">
                     <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
                     <span>Merchandising</span>
@@ -45,13 +60,12 @@
                 </ul>
             </li>
             <li class="sidebar-item">
-                <a href="#purchaseCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" 
+                <a href="#purchaseCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                     role="button" aria-expanded="false" aria-controls="purchaseCollapse">
                     <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
                     <span>Purchase</span>
                 </a>
-                <ul id="purchaseCollapse" class="sidebar-dropdown list-unstyled collapse"
-                    data-bs-parent="#sidebar">
+                <ul id="purchaseCollapse" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a routerlink="/home" class="sidebar-link">
                             <i class='bx bx-chevron-right'></i>

@@ -1,6 +1,6 @@
-<div class="container-fluid vh-100 d-flex flex-column">
+<div class="container-fluid d-flex flex-column">
     <!-- Navbar -->
-   <app-navbar></app-navbar>
+    <app-navbar></app-navbar>
 
     <!-- Main Wrapper: Sidebar + Main Content -->
     <div class="d-flex flex-grow-1">
@@ -9,8 +9,26 @@
 
         <!-- Main Content -->
         <main class="flex-grow-1 p-4 bg-light">
-            <h2>Main Content</h2>
-            <p>Welcome to the main content area!</p>
+            <!-- {{ getCurrentActivePath() }}
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a role="button" (click)="navigate('/home')">
+                            <i class='bx bxs-bookmark-plus'><span>Home</span></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Brand</li>
+                </ol>
+            </nav> -->
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page" *ngFor="let item of breadCrumb()">{{item |
+                        titlecase}}
+                    </li>
+                </ol>
+            </nav>
+            <hr>
+            <router-outlet />
         </main>
     </div>
 </div>

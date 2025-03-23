@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../api.service';
 import { HttpClient } from '@angular/common/http';
-import { Brand } from '../../models/brand.model';
-import { Response } from '../../models/response.model';
+import { Brand } from '../../../models/brand.model';
+import { Response } from '../../../models/response.model';
 
 @Injectable({
   providedIn: 'root'

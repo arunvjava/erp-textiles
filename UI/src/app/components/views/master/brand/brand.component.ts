@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BrandService } from '../../../services/brand/brand.service';
-import { Brand } from '../../../models/brand.model';
-import { HelperUtils } from '../../../utils/helper.model.util';
-import { ConfirmDialogService } from '../../../services/confirm-dialog/confirm-dialog.service';
-import { DialogService } from '../../../services/dialog/dialog.service';
+import { BrandService } from '../../../../services/master/brand/brand.service';
+import { HelperUtils } from '../../../../utils/helper.model.util';
+import { DialogService } from '../../../../services/dialog/dialog.service';
+import { Brand } from '../../../../models/brand.model';
+
 
 @Component({
   selector: 'app-brand',

@@ -1,0 +1,8 @@
+a {
+    color: blue !important;
+    text-decoration: underline !important;
+}
+
+a[routerLink] {
+    cursor: pointer;
+}

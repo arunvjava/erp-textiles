@@ -116,12 +116,12 @@ a.sidebar-link:hover {
     left: 130px;
 }
 
-#sidebar:not(.expand).sidebar-item:hover .has-dropdown .sidebar-dropdown {
+/* #sidebar:not(.expand).sidebar-item:hover .has-dropdown .sidebar-dropdown {
     display: block !important;
     max-height: 15em;
     width: 100%;
     opacity: 1;
-}
+} */
 
 .sidebar-link[data-bs-toggle="collapse"]::after {
     border: solid;
