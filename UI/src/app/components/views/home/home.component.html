@@ -1,14 +1,16 @@
-<div class="d-flex">
-    <app-sidebar></app-sidebar>
-    <!-- Main Component -->
-    <div class="main">
-        <app-navbar></app-navbar>
-        <main class="p-3">
-            <div class="container-fluid">
-                <div class="mb-3 text-center">
-                    <router-outlet />
-                </div>
-            </div>
+<div class="container-fluid vh-100 d-flex flex-column">
+    <!-- Navbar -->
+   <app-navbar></app-navbar>
+
+    <!-- Main Wrapper: Sidebar + Main Content -->
+    <div class="d-flex flex-grow-1">
+        <!-- Sidebar -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4 bg-light">
+            <h2>Main Content</h2>
+            <p>Welcome to the main content area!</p>
         </main>
     </div>
 </div>

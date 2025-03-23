@@ -5,7 +5,7 @@ import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [NavbarComponent, SidebarComponent, RouterOutlet],
+  imports: [SidebarComponent, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -14,6 +14,7 @@ export class HomeComponent {
   isSidebarOpen: boolean = true;
 
   onSidebarToggle() {
+    console.log('Sidebar toggled');
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 

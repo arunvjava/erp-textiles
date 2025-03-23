@@ -5,7 +5,7 @@ import { BrandComponent } from './components/views/brand/brand.component';
 import { LogoutComponent } from './components/views/logout/logout.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     {

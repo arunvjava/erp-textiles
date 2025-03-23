@@ -21,12 +21,7 @@ export class BrandComponent implements OnInit {
   ) { }
 
 
-  ngOnInit(): void {
-    this.brandService.getAllBrands().subscribe(resp => {
-      console.log(resp.respObj);
-      this.openDialog();
-    })
-  }
+  ngOnInit(): void {  }
 
   brandForm = new FormGroup({
     code: new FormControl('', [Validators.required]),

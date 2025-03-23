@@ -8,12 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  @Output() sidebarToggle = new EventEmitter<boolean>();
 
-  toggleSidebar: boolean = false;
-
-  onButtonClick() {
-    this.toggleSidebar = !this.toggleSidebar;
-    this.sidebarToggle.emit(this.toggleSidebar);
+  sideBarToggle() {
+    console.log('Toggle sidebar');
   }
 }

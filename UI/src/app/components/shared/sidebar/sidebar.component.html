@@ -1,37 +1,71 @@
-<!-- Sidebar -->
-<aside id="sidebar" class="sidebar-toggle">
-    <div class="sidebar-logo">
-        <a href="#">Senthur Tex</a>
-    </div>
-    <!-- Sidebar Navigation -->
-    <ul class="sidebar-nav p-0">
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
-                aria-expanded="true" aria-controls="auth">
-                <i class='bx bxs-briefcase'></i>
-                <span>Masters</span>
-            </a>
-            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                <li class="sidebar-item">
-                    <a routerLink="/home/brand" class="button sidebar-link">Brand</a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/home/brand" class="sidebar-link">
-                        <!-- <i class="bi bi-whatsapp"></i> -->
-                        UOM</a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/home/brand" class="sidebar-link">HSN</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- Sidebar Navigation Ends -->
-    <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
-            <i class="lni lni-exit"></i>
-            <span>Setting</span>
-        </a>
-    </div>
-</aside>
-<!-- Sidebar Ends -->
+<div>
+    <aside id="sidebar" [ngClass]="{'expand' : isSidebarOpen}">
+        <div class="d-flex justify-content-between p-4">
+            <div class="sidebar-logo">
+                <a href="" class="fs-4">{{companyName}}</a>
+            </div>
+            <button class="toggle-btn border-0" type="button" (click)="toggleSidebar()">
+                <i class='bx' [ngClass]="sidebarToggleClass"></i>
+            </button>
+        </div>
+        <hr/>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a routerLink="/home" class="sidebar-link">
+                    <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a routerlink="/home" class="sidebar-link">
+                    <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
+                    <span>Master</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#merchandisingCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" 
+                    role="button" aria-expanded="false" aria-controls="merchandisingCollapse">
+                    <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
+                    <span>Merchandising</span>
+                </a>
+                <ul id="merchandisingCollapse" class="sidebar-dropdown list-unstyled collapse"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a routerlink="/home" class="sidebar-link">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Customer Order</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a routerlink="/home" class="sidebar-link">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Work Order</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a href="#purchaseCollapse" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" 
+                    role="button" aria-expanded="false" aria-controls="purchaseCollapse">
+                    <i class='bx bxs-briefcase' style='color:#a52f2f'></i>
+                    <span>Purchase</span>
+                </a>
+                <ul id="purchaseCollapse" class="sidebar-dropdown list-unstyled collapse"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a routerlink="/home" class="sidebar-link">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Customer Order</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a routerlink="/home" class="sidebar-link">
+                            <i class='bx bx-chevron-right'></i>
+                            <span>Work Order</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+</div>
