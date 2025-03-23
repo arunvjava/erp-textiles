@@ -22,6 +22,8 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class BrandComponent implements OnInit, AfterViewInit {
 
+  brandId: string = '';
+  actionBtnName = 'Save';
   isEnableBrandTemplate = false;
   isUpdateDisabled = true;
   brandTemplateBtnName = 'Create';
@@ -92,16 +94,36 @@ export class BrandComponent implements OnInit, AfterViewInit {
 
   saveBrand() {
     console.log('Brand form data->', this.brandForm.value);
-    let brand: Brand = { code: '', name: '', brandId: '' };
-    brand.code = this.getBrandCode();
-    brand.name = this.getBrandName();
 
-    this.brandService.saveBrand(this.brandForm.value as string).subscribe(resp => {
-      console.log("Api response :" + resp.message);
-      this.helperUtils.resetForm(this.brandForm)
-      this.openInfoDialog('Saved Successfully!');
-      this.getAllBrands();
-    })
+    if (this.brandId !== undefined && this.brandId !== '') {
+      let updateBrandVal: Brand = {
+        brandId: this.brandId,
+        code: this.getBrandCode(),
+        name: this.getBrandName()
+      };
+
+      this.brandService.updateBrand(updateBrandVal).subscribe(
+        (resp) => {
+          console.log(resp);
+          this.getAllBrands();
+        }
+      )
+
+    } else {
+      let brand: Brand = { code: '', name: '', brandId: '' };
+      brand.code = this.getBrandCode();
+      brand.name = this.getBrandName();
+
+      this.brandService.saveBrand(this.brandForm.value as string).subscribe(resp => {
+        console.log("Api response :" + resp.message);
+        this.helperUtils.resetForm(this.brandForm)
+        this.openInfoDialog('Saved Successfully!');
+        this.getAllBrands();
+      })
+    }
+
+    this.brandId = '';
+
   }
 
   getAllBrands() {
@@ -190,7 +212,9 @@ export class BrandComponent implements OnInit, AfterViewInit {
   }
 
   update() {
-
+    this.brandForm.setValue({ code: this.selection.selected[0].code, name: this.selection.selected[0].name });
+    this.actionBtnName = 'Update';
+    this.brandId = this.selection.selected[0].brandId;
+    this.isEnableBrandTemplate = true;
   }
-
 }

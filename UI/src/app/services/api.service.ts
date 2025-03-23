@@ -27,6 +27,10 @@ export abstract class ApiService {
         return this.http.post<T>(baseURL + apiUrl, body, { headers: this.getHeaders() });
     }
 
+    protected put<T>(apiUrl: string, body: any): Observable<T> {
+        return this.http.put<T>(baseURL + apiUrl, body, { headers: this.getHeaders() });
+    }
+
     protected postWithParams<T>(apiUrl: string, body: any, params?: HttpParams): Observable<T> {
         return this.http.post<T>(baseURL + apiUrl, body, { headers: this.getHeaders(), params });
     }

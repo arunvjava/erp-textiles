@@ -17,6 +17,10 @@ export class BrandService extends ApiService {
     return this.post<Response<string>>('/brand', brand);
   }
 
+  updateBrand(brand: Brand) {
+    return this.put<Response<string>>('/brand', brand);
+  }
+
   getAllBrands() {
     return this.get<Response<Brand[]>>("/brand/all");
   }
