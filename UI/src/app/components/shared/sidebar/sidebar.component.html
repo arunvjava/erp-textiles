@@ -46,13 +46,13 @@
                 <ul id="merchandisingCollapse" class="sidebar-dropdown list-unstyled collapse"
                     data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a routerlink="/home" class="sidebar-link">
+                        <a role="button" class="sidebar-link" (click)="navigate('/home/cust-order')">
                             <i class='bx bx-chevron-right'></i>
                             <span>Customer Order</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a routerlink="/home" class="sidebar-link">
+                        <a role="button" class="sidebar-link">
                             <i class='bx bx-chevron-right'></i>
                             <span>Work Order</span>
                         </a>

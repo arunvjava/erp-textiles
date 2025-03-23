@@ -1,8 +1,9 @@
-.container{
-    .message{
+.container {
+    .message {
         font-size: large;
     }
-    .confirm-buttons{
+
+    .confirm-buttons {
         text-align: center;
     }
 }

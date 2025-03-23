@@ -1,0 +1,19 @@
+.mat-dialog-container {
+    background-color: #673ab7 !important;
+    /* Purple Background */
+    color: white !important;
+    /* White Text */
+    border-radius: 10px;
+    /* Optional: Rounded Corners */
+    padding: 20px;
+}
+
+.custom-dialog-container {
+    background-color: #673ab7 !important;
+    /* Purple Background */
+    color: white !important;
+    /* White Text */
+    border-radius: 10px;
+    /* Optional: Rounded Corners */
+    padding: 20px;
+}
