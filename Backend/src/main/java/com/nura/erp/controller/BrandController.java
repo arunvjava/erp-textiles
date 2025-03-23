@@ -1,9 +1,12 @@
 package com.nura.erp.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,5 +37,12 @@ public class BrandController {
 	public ResponseEntity<Response<List<Brand>>> getAllBrand() {
 		return ResponseEntity
 				.ok(Response.<List<Brand>>builder().status(200).respObj(brandService.getAllBrands()).build());
+	}
+
+	@DeleteMapping("/{ids}")
+	public ResponseEntity<Response<String>> deleteBrands(@PathVariable String ids) {
+		List<Long> idList = Arrays.stream(ids.split(",")).map(Long::parseLong).toList();
+		brandService.deleteBrands(idList);
+		return ResponseEntity.ok(Response.<String>builder().status(200).respObj(null).build());
 	}
 }

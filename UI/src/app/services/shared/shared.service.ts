@@ -16,7 +16,6 @@ export class SharedService {
   readonly currentActivePathURL = this.currentActivePath.asReadonly();
 
   updateCurrentActivePath(url: string) {
-    console.log(`User navigated to {url}`, url);
     this.currentActivePath.set(url);
   }
 }

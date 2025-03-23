@@ -21,4 +21,8 @@ export class BrandService extends ApiService {
     return this.get<Response<Brand[]>>("/brand/all");
   }
 
+  deleteBrands(ids: string[]) {
+    return this.delete(`/brand/${ids}`);
+  }
+
 }
