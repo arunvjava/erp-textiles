@@ -13,7 +13,6 @@ export class DialogService {
   openConfirmationDialog(title: string, message: string) {
     return this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
-      panelClass: 'custom-dialog-container',
       data: { title, message }
     }).afterClosed();
   }
@@ -21,7 +20,6 @@ export class DialogService {
   openInfoDialog(title: string, message: string) {
     return this.dialog.open(InfoDialogComponent, {
       width: '400px',
-      panelClass: 'custom-dialog-container',
       data: { title, message }
     }).afterClosed();
   }

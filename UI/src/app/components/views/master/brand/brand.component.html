@@ -1,6 +1,7 @@
 <div class="">
     <div class="row">
         <div class="col-3">
+            <button class="btn btn-primary" (click)="testDialog()">Open Dialog</button>
             <button class="btn btn-primary" (click)="enableBrandTemplate()">{{brandTemplateBtnName}}</button>
         </div>
     </div>
@@ -78,8 +79,8 @@
                 </tr>
             </table>
         </div>
-        <mat-paginator [length]="resultsLength" [pageSize]="30"
-            aria-label="Select page of GitHub search results"></mat-paginator>
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,50]" showFirstLastButtons></mat-paginator>
+
 
     </div>
     <br>

@@ -17,6 +17,8 @@ import com.nura.erp.service.BrandService;
 import com.nura.erp.utils.Constants;
 import com.nura.erp.utils.Response;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(Constants.API_V1_PREFIX + "/brand")
 public class BrandController {
@@ -28,7 +30,7 @@ public class BrandController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Response<Brand>> saveBrand(@RequestBody Brand brand) {
+	public ResponseEntity<Response<Brand>> saveBrand(@Valid @RequestBody Brand brand) {
 		Brand savedBrand = brandService.saveBrand(brand);
 		return ResponseEntity.ok(Response.<Brand>builder().status(201).respObj(savedBrand).build());
 	}

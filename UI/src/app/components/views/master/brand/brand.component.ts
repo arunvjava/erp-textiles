@@ -1,5 +1,5 @@
 import { Brand } from './../../../../models/brand.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrandService } from '../../../../services/master/brand/brand.service';
 import { HelperUtils } from '../../../../utils/helper.model.util';
@@ -20,7 +20,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   templateUrl: './brand.component.html',
   styleUrl: './brand.component.css'
 })
-export class BrandComponent implements OnInit {
+export class BrandComponent implements OnInit, AfterViewInit {
 
   isEnableBrandTemplate = false;
   isUpdateDisabled = true;
@@ -50,6 +50,10 @@ export class BrandComponent implements OnInit {
     console.log(this.selection.selected.length);
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   enableBrandTemplate() {
     this.isEnableBrandTemplate = !this.isEnableBrandTemplate;
     this.brandTemplateBtnName = this.brandTemplateBtnName === 'Create' ? 'Close' : 'Create';
@@ -71,16 +75,19 @@ export class BrandComponent implements OnInit {
   //     });
   // }
 
-  openInfoDialog() {
-    this.dialogSerivce.openInfoDialog('Info Action', '')
+  openInfoDialog(infoHeader: string) {
+    this.dialogSerivce.openInfoDialog(infoHeader, '')
       .subscribe(result => {
         if (result) {
           console.log('User confirmed action');
-          this.getAllBrands();
         } else {
           console.log('User canceled action');
         }
       });
+  }
+
+  testDialog() {
+    this.openInfoDialog('Success');
   }
 
   saveBrand() {
@@ -92,17 +99,21 @@ export class BrandComponent implements OnInit {
     this.brandService.saveBrand(this.brandForm.value as string).subscribe(resp => {
       console.log("Api response :" + resp.message);
       this.helperUtils.resetForm(this.brandForm)
-      this.openInfoDialog();
+      this.openInfoDialog('Saved Successfully!');
+      this.getAllBrands();
     })
   }
 
   getAllBrands() {
     this.isLoadingResults = true;
+
     this.brandService.getAllBrands().subscribe(
       (resp) => {
         this.isLoadingResults = false;
         this.avlBrands = resp.respObj;
         this.dataSource = new MatTableDataSource<Brand>(this.avlBrands);
+        this.resultsLength = this.avlBrands.length;
+        this.dataSource.paginator = this.paginator;
       }, (error) => {
         this.isLoadingResults = false;
         this.dialogSerivce.openInfoDialog('Failed', 'Failed to retrieve!')
@@ -168,6 +179,7 @@ export class BrandComponent implements OnInit {
       (resp) => {
         this.isLoadingResults = false;
         console.log('Successfully deleted');
+        this.selection.clear();
         this.getAllBrands();
       }, (error) => {
         this.isLoadingResults = false;

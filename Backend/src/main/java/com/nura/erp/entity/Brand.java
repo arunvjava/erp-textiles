@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -21,9 +23,12 @@ public class Brand {
 	@Column(name = "brand_id")
 	private long brandId;
 	
+    @NotBlank(message = "Code is required")
 	@Column(name = "code_v")
 	private String code;
 	
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, message = "Name must be above 3 chars")
 	@Column(name = "name_v")
 	private String name;
 
