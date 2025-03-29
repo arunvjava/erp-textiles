@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nura.erp.entity.User;
+import com.nura.erp.entity.master.User;
 import com.nura.erp.service.UserService;
 import com.nura.erp.utils.Constants;
 import com.nura.erp.utils.Response;

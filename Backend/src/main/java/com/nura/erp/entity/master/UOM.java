@@ -1,4 +1,4 @@
-package com.nura.erp.entity;
+package com.nura.erp.entity.master;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

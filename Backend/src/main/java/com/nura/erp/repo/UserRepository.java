@@ -2,7 +2,7 @@ package com.nura.erp.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.nura.erp.entity.User;
+import com.nura.erp.entity.master.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 

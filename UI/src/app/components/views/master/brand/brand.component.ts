@@ -94,29 +94,28 @@ export class BrandComponent implements OnInit, AfterViewInit {
 
   saveBrand() {
     console.log('Brand form data->', this.brandForm.value);
-
+    // Update Logic
     if (this.brandId !== undefined && this.brandId !== '') {
       let updateBrandVal: Brand = {
         brandId: this.brandId,
         code: this.getBrandCode(),
         name: this.getBrandName()
       };
-
       this.brandService.updateBrand(updateBrandVal).subscribe(
         (resp) => {
-          console.log(resp);
+          this.helperUtils.resetForm(this.brandForm);
+          this.openInfoDialog('Updated Successfully!');
           this.getAllBrands();
         }
       )
-
-    } else {
+    } else { //Save Logic
       let brand: Brand = { code: '', name: '', brandId: '' };
       brand.code = this.getBrandCode();
       brand.name = this.getBrandName();
 
       this.brandService.saveBrand(this.brandForm.value as string).subscribe(resp => {
         console.log("Api response :" + resp.message);
-        this.helperUtils.resetForm(this.brandForm)
+        this.helperUtils.resetForm(this.brandForm);
         this.openInfoDialog('Saved Successfully!');
         this.getAllBrands();
       })
@@ -134,6 +133,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
         this.isLoadingResults = false;
         this.avlBrands = resp.respObj;
         this.dataSource = new MatTableDataSource<Brand>(this.avlBrands);
+        this.selection.clear();
         this.resultsLength = this.avlBrands.length;
         this.dataSource.paginator = this.paginator;
       }, (error) => {

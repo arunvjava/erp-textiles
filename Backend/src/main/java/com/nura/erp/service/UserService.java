@@ -3,7 +3,7 @@ package com.nura.erp.service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.nura.erp.entity.User;
+import com.nura.erp.entity.master.User;
 import com.nura.erp.repo.UserRepository;
 
 @Service

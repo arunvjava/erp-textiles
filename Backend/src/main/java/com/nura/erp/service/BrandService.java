@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.nura.erp.entity.Brand;
+import com.nura.erp.entity.master.Brand;
 import com.nura.erp.repo.BrandRepository;
 
 @Service

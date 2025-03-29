@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.nura.erp.entity.MasterTax;
+import com.nura.erp.entity.master.MasterTax;
 import com.nura.erp.repo.MasterTaxRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package com.nura.erp.entity;
+package com.nura.erp.entity.master;
 
 import java.util.Date;
 
