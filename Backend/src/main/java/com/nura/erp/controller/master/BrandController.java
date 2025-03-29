@@ -1,4 +1,4 @@
-package com.nura.erp.controller;
+package com.nura.erp.controller.master;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nura.erp.entity.master.Brand;
-import com.nura.erp.service.BrandService;
+import com.nura.erp.service.master.BrandService;
 import com.nura.erp.utils.Constants;
 import com.nura.erp.utils.Response;
 

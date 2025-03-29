@@ -1,4 +1,4 @@
-package com.nura.erp.service;
+package com.nura.erp.service.master;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

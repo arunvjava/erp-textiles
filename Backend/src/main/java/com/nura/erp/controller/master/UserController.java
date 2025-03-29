@@ -1,4 +1,4 @@
-package com.nura.erp.controller;
+package com.nura.erp.controller.master;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nura.erp.entity.master.User;
-import com.nura.erp.service.UserService;
+import com.nura.erp.service.master.UserService;
 import com.nura.erp.utils.Constants;
 import com.nura.erp.utils.Response;
 

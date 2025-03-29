@@ -1,4 +1,4 @@
-package com.nura.erp.service;
+package com.nura.erp.service.master;
 
 import java.util.List;
 

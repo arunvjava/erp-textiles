@@ -1,4 +1,4 @@
-package com.nura.erp.service;
+package com.nura.erp.service.master;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ public class TaxService {
 	public MasterTax saveMasterTax(MasterTax masterTax) {
 		return taxRepo.save(masterTax);
 	}
-	
+
 	public List<MasterTax> getAllMasterTax() {
 		return taxRepo.findAll();
 	}
-	
+
 }
