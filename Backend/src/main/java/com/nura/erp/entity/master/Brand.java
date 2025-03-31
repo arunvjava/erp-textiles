@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -18,8 +19,8 @@ import lombok.Data;
 public class Brand {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brand_dtls_generator")
-	@SequenceGenerator(name = "brand_dtls_generator", sequenceName = "brand_dtls_seq", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_brand_dtls_generator")
+	@SequenceGenerator(name = "ms_brand_dtls_generator", sequenceName = "ms_brand_dtls_seq", allocationSize = 1, initialValue = 1)
 	@Column(name = "brand_id")
 	private long brandId;
 
@@ -37,4 +38,9 @@ public class Brand {
 
 	@Embedded
 	private AuditDtls auditDtls;
+
+	@PrePersist
+	public void setDefaultValues() {
+		this.isActive = true;
+	}
 }

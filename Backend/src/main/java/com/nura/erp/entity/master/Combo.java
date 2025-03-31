@@ -15,14 +15,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "ms_color")
-public class Color {
+@Table(name = "ms_combo")
+public class Combo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_color_dtls_generator")
-	@SequenceGenerator(name = "ms_color_dtls_generator", sequenceName = "ms_color_dtls_seq", allocationSize = 1, initialValue = 1)
-	@Column(name = "color_id")
-	private long colorId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_combo_dtls_generator")
+	@SequenceGenerator(name = "ms_combo_dtls_generator", sequenceName = "ms_combo_dtls_seq", allocationSize = 1, initialValue = 1)
+	@Column(name = "combo_id")
+	private long comboId;
 
 	@NotBlank(message = "Code is required")
 	@Column(name = "code_v")
@@ -43,5 +43,4 @@ public class Color {
 	public void setDefaultValues() {
 		this.isActive = true;
 	}
-
 }

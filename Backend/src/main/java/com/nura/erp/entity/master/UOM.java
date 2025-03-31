@@ -16,8 +16,8 @@ import lombok.Data;
 public class UOM {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "uom_dtls_generator")
-	@SequenceGenerator(name = "uom_dtls_generator", sequenceName = "uom_dtls_seq", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_uom_dtls_generator")
+	@SequenceGenerator(name = "ms_uom_dtls_generator", sequenceName = "ms_uom_dtls_seq", allocationSize = 1, initialValue = 1)
 	@Column(name = "id")
 	private long id;
 

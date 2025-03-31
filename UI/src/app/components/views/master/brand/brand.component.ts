@@ -32,7 +32,9 @@ export class BrandComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Brand>();
   selection = new SelectionModel<Brand>(true, []);
 
-  // Table related variables
+  /**
+   * Table related variables
+   */
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -66,16 +68,6 @@ export class BrandComponent implements OnInit, AfterViewInit {
     name: new FormControl('', [Validators.required])
   });
 
-  // openDialog() {
-  //   this.dialogSerivce.openConfirmationDialog('Confirm Action', 'Are you sure you want to proceed?')
-  //     .subscribe(result => {
-  //       if (result) {
-  //         console.log('User confirmed action');
-  //       } else {
-  //         console.log('User canceled action');
-  //       }
-  //     });
-  // }
 
   openInfoDialog(infoHeader: string) {
     this.dialogSerivce.openInfoDialog(infoHeader, '')
@@ -86,10 +78,6 @@ export class BrandComponent implements OnInit, AfterViewInit {
           console.log('User canceled action');
         }
       });
-  }
-
-  testDialog() {
-    this.openInfoDialog('Success');
   }
 
   saveBrand() {
@@ -153,7 +141,8 @@ export class BrandComponent implements OnInit, AfterViewInit {
 
   /**
    * Table related operations
-   */
+  */
+
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;

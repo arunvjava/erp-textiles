@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ms_tax")
-public class MasterTax {
+public class Tax {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_tax_dtls_generator")

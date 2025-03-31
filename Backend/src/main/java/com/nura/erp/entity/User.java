@@ -1,4 +1,6 @@
-package com.nura.erp.entity.master;
+package com.nura.erp.entity;
+
+import com.nura.erp.entity.master.AuditDtls;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

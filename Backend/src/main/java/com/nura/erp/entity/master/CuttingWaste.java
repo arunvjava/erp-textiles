@@ -15,14 +15,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "ms_color")
-public class Color {
+@Table(name = "ms_cutting_waste")
+public class CuttingWaste {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_color_dtls_generator")
-	@SequenceGenerator(name = "ms_color_dtls_generator", sequenceName = "ms_color_dtls_seq", allocationSize = 1, initialValue = 1)
-	@Column(name = "color_id")
-	private long colorId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_cutting_waste_dtls_generator")
+	@SequenceGenerator(name = "ms_cutting_waste_dtls_generator", sequenceName = "ms_cutting_waste_dtls_seq", allocationSize = 1, initialValue = 1)
+	@Column(name = "id")
+	private long id;
 
 	@NotBlank(message = "Code is required")
 	@Column(name = "code_v")

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.nura.erp.entity.master.MasterTax;
-import com.nura.erp.repo.MasterTaxRepository;
+import com.nura.erp.entity.master.Tax;
+import com.nura.erp.repo.master.MasterTaxRepository;
 
 @Service
 public class TaxService {
@@ -16,11 +16,11 @@ public class TaxService {
 		this.taxRepo = taxRepo;
 	}
 
-	public MasterTax saveMasterTax(MasterTax masterTax) {
+	public Tax saveMasterTax(Tax masterTax) {
 		return taxRepo.save(masterTax);
 	}
 
-	public List<MasterTax> getAllMasterTax() {
+	public List<Tax> getAllMasterTax() {
 		return taxRepo.findAll();
 	}
 

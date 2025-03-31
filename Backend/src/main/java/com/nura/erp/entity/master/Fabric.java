@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -15,14 +17,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "ms_color")
-public class Color {
+@Table(name = "ms_fabric")
+public class Fabric {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_color_dtls_generator")
-	@SequenceGenerator(name = "ms_color_dtls_generator", sequenceName = "ms_color_dtls_seq", allocationSize = 1, initialValue = 1)
-	@Column(name = "color_id")
-	private long colorId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ms_fabric_dtls_generator")
+	@SequenceGenerator(name = "ms_fabric_dtls_generator", sequenceName = "ms_fabric_dtls_seq", allocationSize = 1, initialValue = 1)
+	@Column(name = "fabric_id")
+	private long fabricId;
 
 	@NotBlank(message = "Code is required")
 	@Column(name = "code_v")
@@ -32,6 +34,18 @@ public class Color {
 	@Size(min = 3, message = "Name must be above 3 chars")
 	@Column(name = "name_v")
 	private String name;
+
+	@OneToOne
+	@JoinColumn(name = "hsn_id")
+	private HSN hsn;
+
+	@OneToOne
+	@JoinColumn(name = "tax_id")
+	private Tax tax;
+
+	@OneToOne
+	@JoinColumn(name = "uom_id")
+	private UOM uom;
 
 	@Column(name = "active")
 	private boolean isActive;
