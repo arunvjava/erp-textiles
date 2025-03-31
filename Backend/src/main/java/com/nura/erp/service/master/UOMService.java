@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.nura.erp.entity.master.UOM;
-import com.nura.erp.repo.UOMRepository;
+import com.nura.erp.repo.master.UOMRepository;
 
 @Service
 public class UOMService {

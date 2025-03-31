@@ -1,4 +1,4 @@
-package com.nura.erp.repo;
+package com.nura.erp.repo.master;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
