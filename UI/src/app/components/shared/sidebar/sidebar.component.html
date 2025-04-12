@@ -10,6 +10,41 @@
         </div>
         <hr />
         <ul class="sidebar-nav">
+            <li class="sidebar-item" *ngFor="let menu of getMenus()">
+                <div *ngIf="!menu.collapsible; else childMenuBlock">
+                    <a class="sidebar-link" role="button" (click)="navigate(menu.hyperlink)">
+                        <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
+                        <span>{{menu.menuname}}</span>
+                    </a>
+                </div>
+                <ng-template #childMenuBlock>
+                    <a href="#{{menu.collapseName}}" [attr.aria-controls]="menu.collapseName"
+                        class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false">
+                        <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
+                        <span>{{menu.menuname}}</span>
+                    </a>
+                    <div *ngFor="let submenu of menu.submenu">
+                        <ul id="{{menu.collapseName}}" class="sidebar-dropdown list-unstyled collapse"
+                            data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" role="button" (click)="navigate(submenu.hyperlink)">
+                                    <i class='bx bx-chevron-right'></i>
+                                    <span>{{submenu.menuname}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+        <!-- <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a class="sidebar-link" role="button" (click)="navigate('/home')">
+                    <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
             <li class="sidebar-item">
                 <a class="sidebar-link" role="button" (click)="navigate('/home')">
                     <i class='bx bxs-dashboard' style='color:#a52f2f'></i>
@@ -80,6 +115,6 @@
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul> -->
     </aside>
 </div>

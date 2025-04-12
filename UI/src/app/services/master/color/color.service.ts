@@ -19,8 +19,8 @@ export class ColorService extends ApiService {
 
   updateBrand(color: Color) {
     return this.put<Response<string>>('/color', color);
+    
   }
-
   getAllColors() {
     return this.get<Response<Color[]>>("/color/all");
   }

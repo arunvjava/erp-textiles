@@ -1,0 +1,17 @@
+<div class="">
+    <div class="row">
+        <div class="col-3">
+        </div>
+    </div>
+    <hr><br />
+    <div class="row">
+        <div class="col-6">
+            <app-master-dynamic-form
+                [config]="getFormConfig()" 
+                (formSubmitted)="handleFormSubmit($event)">
+            </app-master-dynamic-form>
+            <br>
+        </div>
+    </div>
+    <br>
+</div>

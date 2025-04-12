@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -8,10 +8,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SharedService } from '../../../services/shared/shared.service';
+import {MenuMaster} from '../../../utils/menu.master';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgClass, RouterModule],
+  imports: [NgClass, RouterModule, CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
@@ -19,7 +20,9 @@ export class SidebarComponent {
 
   constructor(
     private router: Router,
-    private sharedService: SharedService) { }
+    private sharedService: SharedService,
+    private menuMaster: MenuMaster
+    ) { }
 
   isSidebarOpen = true;
   sidebarToggleClass = 'bx-chevrons-right';
@@ -29,6 +32,10 @@ export class SidebarComponent {
     this.isSidebarOpen = !this.isSidebarOpen;
     this.sidebarToggleClass = this.sidebarToggleClass === 'bx-chevrons-right' ? 'bx-chevrons-left' : 'bx-chevrons-right';
     this.companyName = this.companyName === 'Senthur Tex' ? '' : 'Senthur Tex';
+  }
+
+  getMenus() {
+    return this.menuMaster.dynamicLinks;
   }
 
   navigate(url: string) {
