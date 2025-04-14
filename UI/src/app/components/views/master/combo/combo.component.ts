@@ -17,10 +17,17 @@ import {FormsModule, NgModel} from '@angular/forms';
 export class ComboComponent {
 
   isDataLoading = false;
-  tableHeaders: string[] = ['comboId', 'code', 'name'];
   comboData: Combo[] = [];
   createCombo: boolean = false;
   formAction = 'Create';
+
+  // Map: column keys -> labels
+  columnMap = new Map<string, string>([
+    ['select', 'Select'],
+    ['comboId', 'ID'],
+    ['code', 'Code'],
+    ['name', 'Name']
+  ]);
 
   constructor(
     private masterFormConfig: FormsMasterConfig,
@@ -64,9 +71,6 @@ export class ComboComponent {
     return this.masterFormConfig.buyerFormFields;
   }
 
-  getTableColumnNames() {
-    return this.tableHeaders;
-  }
 
   handleFormSubmit(data: any) {
     console.log('Form Submitted in dynamic form :', data);

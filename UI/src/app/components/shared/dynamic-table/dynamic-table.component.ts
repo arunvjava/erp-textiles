@@ -19,10 +19,11 @@ import {SelectionModel} from '@angular/cdk/collections';
 })
 export class DynamicTableComponent {
 
-  @Input() displayedColumns: string[] = [];
+  @Input() columnMap: Map<string, string> = new Map();
   @Input() data: any[] = [];
   @Input() isLoadingResults: boolean = false;
   @Output() eventEmitter = new EventEmitter<any>;
+
 
   dataSource = new MatTableDataSource<Brand>();
   selection = new SelectionModel<Brand>(true, []);
@@ -30,6 +31,7 @@ export class DynamicTableComponent {
   /**
    * Table related variables
    */
+  displayedColumns: string[] = [];
   resultsLength = 0;
   isRateLimitReached = false;
 
@@ -41,6 +43,8 @@ export class DynamicTableComponent {
 
   ngOnInit(): void {
     console.log(this.selection.selected.length);
+    // Extract keys for matColumnDef and displayedColumns
+    this.displayedColumns = Array.from(this.columnMap.keys());
   }
 
   ngAfterViewInit() {

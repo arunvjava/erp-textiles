@@ -31,9 +31,24 @@
             </ng-container> -->
 
             <!-- Dynamic column definitions -->
-            <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column }} </th>
+            <ng-container *ngFor="let column of displayedColumns; let i = index" [matColumnDef]="column">
+                @if (column === 'select') {
+                <th mat-header-cell *matHeaderCellDef class="col-1">
+                    <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                </td>
+                } @else {
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ columnMap.get(column) }} </th>
                 <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+                }
+
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
