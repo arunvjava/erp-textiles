@@ -74,12 +74,12 @@ export class DynamicTableComponent {
   }
 
   /** The label for the checkbox on the passed row */
-  // checkboxLabel(row?: any): string {
-  //   if (!row) {
-  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-  //   }
-  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row + 1}`;
-  // }
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row + 1}`;
+  }
 
   /** The label for the checkbox on the passed row */
   // checkboxLabel(row?: Combo): string {
@@ -89,16 +89,22 @@ export class DynamicTableComponent {
   //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.comboId + 1}`;
   // }
 
-
-
-  onSelect(item?: any) {
-    if (item != null) {
-      this.selectionChanged.emit(item); // Emit the selected item
-    } else if (this.selection.selected.length > 0) {
+  onSelect(row?: any) {
+    if (!row && this.isAllSelected()) {
       this.selectionChanged.emit(this.data);
+    } else {
+      this.selectionChanged.emit(this.selection.selected);
     }
-
   }
+
+
+  // onSelect(item?: any) {
+  //   if (item != null) {
+  //     this.selectionChanged.emit(item); // Emit the selected item
+  //   } else if (this.selection.selected.length > 0) {
+  //     this.selectionChanged.emit(this.data);
+  //   }
+  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
