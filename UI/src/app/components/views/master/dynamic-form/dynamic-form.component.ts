@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MasterDynamicFormComponent} from "../../../shared/master-dynamic-form/master-dynamic-form.component";
 import {FormsMasterConfig} from '../../../../utils/forms.master';
-import {DynamicTableComponent} from "../../../shared/dynamic-table/dynamic-table.component";
-import {BrandService} from '../../../../services/master/brand/brand.service';
 
 @Component({
   selector: 'app-dynamic-form',
-  imports: [MasterDynamicFormComponent, DynamicTableComponent],
+  imports: [MasterDynamicFormComponent],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.css'
 })

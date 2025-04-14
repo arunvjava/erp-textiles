@@ -18,7 +18,8 @@
     <br />
     <div>
         @if(!getIsDataLoading()) {
-        <app-dynamic-table [isLoadingResults]="getIsDataLoading()" [columnMap]="columnMap" [data]="getData()">
+        <app-dynamic-table [isLoadingResults]="getIsDataLoading()" [columnMap]="columnMap" [data]="getData()"
+            (selectionChanged)="handleSelection($event)">
         </app-dynamic-table>
         }
     </div>

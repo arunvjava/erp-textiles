@@ -26,7 +26,8 @@ export class ComboComponent {
     ['select', 'Select'],
     ['comboId', 'ID'],
     ['code', 'Code'],
-    ['name', 'Name']
+    ['name', 'Name'],
+    // ['active', 'Active']
   ]);
 
   constructor(
@@ -81,4 +82,10 @@ export class ComboComponent {
       }
     )
   }
+
+  handleSelection(selectedItem: any) {
+    console.log('Received from child:', selectedItem);
+    // Do something with the selected item
+  }
+  
 }

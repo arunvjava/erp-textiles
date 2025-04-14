@@ -2,17 +2,20 @@
     <div *ngFor="let field of config">
         <div class="mb-3 text-start">
             <label class="form-label">{{ field.label }}</label>
-            <input class="form-control" aria-describedby="field.name" [type]="field.type"
-                [formControlName]="field.name" [placeholder]="field.placeholder" />
+            <input class="form-control" aria-describedby="field.name" [type]="field.type" [formControlName]="field.name"
+                [placeholder]="field.placeholder" />
             <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
-                <small *ngIf="form.get(field.name)?.hasError('required')">This field is required</small>
-                <small *ngIf="form.get(field.name)?.hasError('minlength')">Minimum length not met</small>
-                <small *ngIf="form.get(field.name)?.hasError('maxlength')">Maximum length exceeded</small>
-                <small *ngIf="form.get(field.name)?.hasError('email')">Invalid email format</small>
+                <small class="text-danger" *ngIf="form.get(field.name)?.hasError('required')">This field is
+                    required</small>
+                <small class="text-danger" *ngIf="form.get(field.name)?.hasError('minlength')">Minimum length not
+                    met</small>
+                <small class="text-danger" *ngIf="form.get(field.name)?.hasError('maxlength')">Maximum length
+                    exceeded</small>
+                <small class="text-danger" *ngIf="form.get(field.name)?.hasError('email')">Invalid email format</small>
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create</button>
 </form>
 
 <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">

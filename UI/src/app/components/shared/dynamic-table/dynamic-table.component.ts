@@ -8,8 +8,8 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {Brand} from '../../../models/master/brand.model';
 import {SelectionModel} from '@angular/cdk/collections';
+import {Combo} from '../../../models/master/combo.model';
 
 @Component({
   selector: 'app-dynamic-table',
@@ -22,11 +22,10 @@ export class DynamicTableComponent {
   @Input() columnMap: Map<string, string> = new Map();
   @Input() data: any[] = [];
   @Input() isLoadingResults: boolean = false;
-  @Output() eventEmitter = new EventEmitter<any>;
+  @Output() selectionChanged = new EventEmitter<any>();
 
-
-  dataSource = new MatTableDataSource<Brand>();
-  selection = new SelectionModel<Brand>(true, []);
+  dataSource = new MatTableDataSource<any>();
+  selection = new SelectionModel<any>(true, []);
 
   /**
    * Table related variables
@@ -42,7 +41,6 @@ export class DynamicTableComponent {
 
 
   ngOnInit(): void {
-    console.log(this.selection.selected.length);
     // Extract keys for matColumnDef and displayedColumns
     this.displayedColumns = Array.from(this.columnMap.keys());
   }
@@ -76,11 +74,30 @@ export class DynamicTableComponent {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: Brand): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+  // checkboxLabel(row?: any): string {
+  //   if (!row) {
+  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+  //   }
+  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row + 1}`;
+  // }
+
+  /** The label for the checkbox on the passed row */
+  // checkboxLabel(row?: Combo): string {
+  //   if (!row) {
+  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+  //   }
+  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.comboId + 1}`;
+  // }
+
+
+
+  onSelect(item?: any) {
+    if (item != null) {
+      this.selectionChanged.emit(item); // Emit the selected item
+    } else if (this.selection.selected.length > 0) {
+      this.selectionChanged.emit(this.data);
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.brandId + 1}`;
+
   }
 
   applyFilter(event: Event) {
