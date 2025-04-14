@@ -1,4 +1,4 @@
-import { Brand } from './../../../../models/brand.model';
+import { Brand } from '../../../../models/master/brand.model';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrandService } from '../../../../services/master/brand/brand.service';

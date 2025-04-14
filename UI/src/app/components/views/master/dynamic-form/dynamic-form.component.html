@@ -6,12 +6,19 @@
     <hr><br />
     <div class="row">
         <div class="col-6">
-            <app-master-dynamic-form
+            <app-master-dynamic-form 
                 [config]="getFormConfig()" 
                 (formSubmitted)="handleFormSubmit($event)">
             </app-master-dynamic-form>
             <br>
         </div>
+    </div>
+    <div>
+        <app-dynamic-table 
+            [isLoadingResults]="getIsDataLoading()"
+            [displayedColumns]="getTableColumnNames()"
+            [data]="getData()">
+        </app-dynamic-table>
     </div>
     <br>
 </div>

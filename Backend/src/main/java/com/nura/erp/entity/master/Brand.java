@@ -1,5 +1,7 @@
 package com.nura.erp.entity.master;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -42,5 +44,7 @@ public class Brand {
 	@PrePersist
 	public void setDefaultValues() {
 		this.isActive = true;
+		auditDtls = new AuditDtls();
+		auditDtls.setCreatedTime(new Date());
 	}
 }

@@ -6,6 +6,7 @@ import { BrandComponent } from './components/views/master/brand/brand.component'
 import { ColorComponent } from './components/views/master/color/color.component';
 import { CustomerOrderComponent } from './components/views/merchandising/customer-order/customer-order.component';
 import {DynamicFormComponent} from './components/views/master/dynamic-form/dynamic-form.component';
+import {ComboComponent} from './components/views/master/combo/combo.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ export const routes: Routes = [
             { path: 'brand', component: BrandComponent },
             { path: 'color', component: ColorComponent },
             { path: 'cust-order', component: CustomerOrderComponent },
+            { path: 'combo', component: ComboComponent },
             { path: 'dynamic-form', component: DynamicFormComponent },
         ]
     },

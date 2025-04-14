@@ -69,9 +69,18 @@ export class MenuMaster {
         {
             menuname: 'Merchandising',
             hyperlink: '/merchandising',
-            collapsible: false,
-            collapseName: '',
-            submenu: []
+            collapsible: true,
+            collapseName: 'merchandisingCollapse',
+            submenu: [
+                {
+                    menuname: 'Customer Order',
+                    hyperlink: '/home/brand'
+                },
+                {
+                    menuname: 'Work Order',
+                    hyperlink: '/home/buyer'
+                }
+            ]
         },
     ];
 }
