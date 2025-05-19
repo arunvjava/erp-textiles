@@ -1,8 +1,13 @@
 <div class="">
     <div class="row">
-        <div class="col-3">
-            <button class="btn btn-primary" (click)="enableBrandTemplate()">{{brandTemplateBtnName}}</button>
+        <div class="row">
+            <div class="col-3">
+                <mat-slide-toggle (change)="enableBrandTemplate($event)">{{brandTemplateBtnName}}</mat-slide-toggle>
+            </div>
         </div>
+        <!-- <div class="col-3">
+            <button class="btn btn-primary" (click)="enableBrandTemplate()">{{brandTemplateBtnName}}</button>
+        </div> -->
     </div>
     <hr><br />
     <div class="row" *ngIf="isEnableBrandTemplate">

@@ -13,10 +13,11 @@ import { NgIf } from '@angular/common';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Color } from '../../../../models/master/color.model';
 import { ColorService } from '../../../../services/master/color/color.service';
+import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-color',
-  imports: [ReactiveFormsModule, NgIf, MatTableModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSort, MatSortModule, MatPaginator, MatPaginatorModule],
+  imports: [ReactiveFormsModule, NgIf, MatTableModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSort, MatSortModule, MatPaginator, MatPaginatorModule, MatSlideToggleModule],
   templateUrl: './color.component.html',
   styleUrl: './color.component.css'
 })
@@ -56,7 +57,7 @@ export class ColorComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  enableColorTemplate() {
+  enableColorTemplate(event: MatSlideToggleChange) {
     this.isEnableCreateTemplate = !this.isEnableCreateTemplate;
     this.colorTemplateBtnName = this.colorTemplateBtnName === 'Create' ? 'Close' : 'Create';
   }

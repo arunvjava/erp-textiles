@@ -13,10 +13,11 @@ import { MatSort, MatSortModule, SortDirection } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { NgIf } from '@angular/common';
 import { SelectionModel } from '@angular/cdk/collections';
+import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-brand',
-  imports: [ReactiveFormsModule, NgIf, MatTableModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSort, MatSortModule, MatPaginator, MatPaginatorModule],
+  imports: [ReactiveFormsModule, NgIf, MatTableModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSort, MatSortModule, MatPaginator, MatPaginatorModule, MatSlideToggleModule],
   templateUrl: './brand.component.html',
   styleUrl: './brand.component.css'
 })
@@ -58,7 +59,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  enableBrandTemplate() {
+  enableBrandTemplate(event: MatSlideToggleChange) {
     this.isEnableBrandTemplate = !this.isEnableBrandTemplate;
     this.brandTemplateBtnName = this.brandTemplateBtnName === 'Create' ? 'Close' : 'Create';
   }

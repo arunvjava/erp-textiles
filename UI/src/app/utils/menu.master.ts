@@ -63,6 +63,10 @@ export class MenuMaster {
                 {
                     menuname: 'Designation Port',
                     hyperlink: '/home/designation-port'
+                },
+                {
+                    menuname: 'HSN',
+                    hyperlink: '/home/hsn'
                 }
             ]
         },
